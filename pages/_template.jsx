@@ -21,8 +21,9 @@ module.exports = React.createClass({
     }
   },
   render () {
-    const docsActive = includes(this.props.location.pathname, '/docs/')
-    const examplesActive = includes(this.props.location.pathname, '/examples/')
+    const stack = includes(this.props.location.pathname, '/stack/')
+    const biography = includes(this.props.location.pathname, '/biography/')
+    const contacts = includes(this.props.location.pathname, '/contacts/')
 
     return (
       <div>
@@ -63,22 +64,11 @@ module.exports = React.createClass({
                 </Link>
               </Span>
               <Span columns={8} last>
-                <a
-                  style={{
-                    float: 'right',
-                    color: colors.fg,
-                    textDecoration: 'none',
-                    marginLeft: rhythm(1/2),
-                  }}
-                  href="https://github.com/gatsbyjs/gatsby"
-                >
-                  Github
-                </a>
                 <Link
-                  to={prefixLink('/examples/')}
+                  to={prefixLink('/contacts/')}
                   style={{
-                    background: examplesActive ? activeColors.bg : colors.bg,
-                    color: examplesActive ? activeColors.fg : colors.fg,
+                    background: contacts ? activeColors.bg : colors.bg,
+                    color: contacts ? activeColors.fg : colors.fg,
                     float: 'right',
                     textDecoration: 'none',
                     paddingLeft: rhythm(1/2),
@@ -89,13 +79,13 @@ module.exports = React.createClass({
                     marginTop: rhythm(-1),
                   }}
                 >
-                  Examples
+                  Contacts
                 </Link>
                 <Link
-                  to={prefixLink('/docs/')}
+                  to={prefixLink('/biography/')}
                   style={{
-                    background: docsActive ? activeColors.bg : colors.bg,
-                    color: docsActive ? activeColors.fg : colors.fg,
+                    background: biography ? activeColors.bg : colors.bg,
+                    color: biography ? activeColors.fg : colors.fg,
                     float: 'right',
                     textDecoration: 'none',
                     paddingLeft: rhythm(1/2),
@@ -106,7 +96,24 @@ module.exports = React.createClass({
                     marginTop: rhythm(-1),
                   }}
                 >
-                  Documentation
+                  Biography
+                </Link>
+                <Link
+                  to={prefixLink('/stack/')}
+                  style={{
+                    background: stack ? activeColors.bg : colors.bg,
+                    color: stack ? activeColors.fg : colors.fg,
+                    float: 'right',
+                    textDecoration: 'none',
+                    paddingLeft: rhythm(1/2),
+                    paddingRight: rhythm(1/2),
+                    paddingBottom: rhythm(3/4),
+                    marginBottom: rhythm(-1),
+                    paddingTop: rhythm(1),
+                    marginTop: rhythm(-1),
+                  }}
+                >
+                  Tech Stack
                 </Link>
               </Span>
             </Grid>
